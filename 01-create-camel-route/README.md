@@ -6,7 +6,18 @@ Go to a terminal that has git available and do the following:
   $ git clone <TODO insert url here>
 ```
 Using your favorite editor open up <TODO file path to Application file or Route file>
-
+  
+## Review the Code
+Take note of the Application class and the ServletRegistrationBean.  This is necessary to use the Camel Servlet component to write your APIs using the Camel RestDSL. 
+```java
+    @Bean
+    public ServletRegistrationBean camelServletRegistrationBean() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(new CamelHttpTransportServlet());
+        registration.setName("CamelServlet");
+        return registration;
+    }
+```
+  
 ## Write Your Camel Route
 You will need to write your Camel route inside the configure() method.  The following route can be used, but you can also feel free to write your own.  Directions will go off of this route.
 ```java
