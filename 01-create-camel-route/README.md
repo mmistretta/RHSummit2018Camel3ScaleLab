@@ -2,6 +2,7 @@
 
 ## Download the project with Git
 Go to a terminal that has git available and do the following:
+
 ....
   $ git clone <TODO insert url here>
 ....
@@ -12,12 +13,10 @@ You will need to write your Camel route inside the configure() method.  The foll
 ....
         restConfiguration()
         	.component("servlet")
-    		.bindingMode(RestBindingMode.json);
-    
+    		  .bindingMode(RestBindingMode.json);
         rest().get("/")
         	.route().routeId("get-hello")
-    		.to("direct:hello");
-        
+    		  .to("direct:hello");
         from("direct:hello")
         	.routeId("log-hello")
         	.log(LoggingLevel.INFO, "Hello World <Your Name>")
@@ -26,6 +25,7 @@ You will need to write your Camel route inside the configure() method.  The foll
 
 ## Run Your Camel Route Using Standalone Spring Boot
 To initially test your Camel route you can run it using standalone spring-boot.  This will ensure everything compiles and that your Rest API is working as expected. To do this go to your terminal, browse to your project folder, and run the following:
+
 ....
 mvn spring-boot:run
 ....
