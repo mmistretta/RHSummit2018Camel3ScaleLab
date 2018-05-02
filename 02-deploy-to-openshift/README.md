@@ -18,7 +18,7 @@ This lab assumes you have an Open Shift Online free account.  If you do not, ple
 3. Upper right hand corner <copy login command>
   
   ```
-[marycochran@localhost RHSummit2018Camel3ScaleLab]$ oc login https://api.starter-ca-central-1.openshift.com --token=y4ZWtAO4r8IixI-Ke8pVUpgLhMcH00mlAXDr1MpMgvk
+[marycochran@localhost RHSummit2018Camel3ScaleLab]$ oc login https://api.starter-ca-central-1.openshift.com --token=<MYTOKEN>
 Logged into "https://api.starter-ca-central-1.openshift.com:443" as "rhn-gps-mcochran" using the token provided.
 
 You have one project on this server: "mary-test"
