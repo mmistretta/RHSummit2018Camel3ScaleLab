@@ -7,7 +7,7 @@ https://developers.redhat.com/auth/realms/rhd/protocol/openid-connect/registrati
 
 Then go here to create your account: https://www.openshift.com/container-platform/
 
-![Signup-for-free.png](./images/00-lab-images/Signup-for-free.png)
+![Signup-for-free.png](./../images/00-lab-images/Signup-for-free.png)
 1. Select sign up for free
 2. Select ‘Add a New Plan’, Free Plan
 3. Wait for email
