@@ -8,10 +8,13 @@ https://developers.redhat.com/auth/realms/rhd/protocol/openid-connect/registrati
 Then go here to create your account: https://www.openshift.com/container-platform/
 
 ![Signup-for-free.png](./../images/00-lab-images/Signup-for-free.png)
+
 1. Select sign up for free
 ![openshift-online-add-plan.png](./../images/00-lab-images/openshift-online-add-plan.png)
+
 2. Select ‘Add a New Plan’, Free Plan
 ![openshift-online-email.png](./../images/00-lab-images/openshift-online-email.png)
+
 3. Wait for email
 
 ## Get OC Tools
@@ -23,13 +26,16 @@ https://access.redhat.com/downloads/content/293/ver=3.3/rhel---7/3.3/x86_64/prod
 or by going to about section in web console.
 
 ![openshift-online-about.png](./../images/00-lab-images/openshift-online-about.png)
+
 1. Go to your webconsole, link similar to https://console.starter-ca-central-1.openshift.com/console/command-line
 and select 'About' from the drop down when clicking the question mark. 
 
 ![openshift-online-command-line.png](./../images/00-lab-images/openshift-online-command-line.png)
+
 2. Select the 'Command Link Tools' link
 
 ![openshift-online-download-oc.png](./../images/00-lab-images/openshift-online-download-oc.png)
+
 3. Download the appropriate ‘oc’ tool for your operating system
 
 ### Optional
