@@ -10,9 +10,11 @@ Then go here to create your account: https://www.openshift.com/container-platfor
 ![Signup-for-free.png](./../images/00-lab-images/Signup-for-free.png)
 
 1. Select sign up for free
+
 ![openshift-online-add-plan.png](./../images/00-lab-images/openshift-online-add-plan.png)
 
 2. Select ‘Add a New Plan’, Free Plan
+
 ![openshift-online-email.png](./../images/00-lab-images/openshift-online-email.png)
 
 3. Wait for email
