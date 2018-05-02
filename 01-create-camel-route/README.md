@@ -3,9 +3,9 @@
 ## Download the project with Git
 Go to a terminal that has git available and do the following:
 ```
-  $ git clone <TODO insert url here>
+  $ git clone https://github.com/mmistretta/RHSummit2018Camel3ScaleLab/tree/master/summit-example
 ```
-Using your favorite editor open up <TODO file path to Application file or Route file>
+Using your favorite editor open up the project.  
   
 ## Review the Code
 Take note of the Application class and the ServletRegistrationBean.  This is necessary to use the Camel Servlet component to write your APIs using the Camel RestDSL. 
@@ -19,7 +19,8 @@ Take note of the Application class and the ServletRegistrationBean.  This is nec
 ```
   
 ## Write Your Camel Route
-You will need to write your Camel route inside the configure() method.  The following route can be used, but you can also feel free to write your own.  Directions will go off of this route.
+Before writing your own route you will need to create a new package for it.  Create the package/folder 'my.project.route'.
+Then create a class for your route.  You can name it whatever you would like such as `MyRoute`. Make this class extend the RouteBuilder class. Also add the @Component annotation to the class itself. Finally, you will need to write your Camel route inside the configure() method.  The following route can be used, but you can also feel free to write your own.  Directions will go off of this route.
 ```java
         restConfiguration()
         	.component("servlet")
