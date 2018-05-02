@@ -2,22 +2,21 @@
 
 This lab assumes you have an Open Shift Online free account.  If you do not, please go to Step 00 here: https://github.com/mmistretta/RHSummit2018Camel3ScaleLab/tree/master/00-create-openshift-online-account
 
-
-        ![openshift-online-login.png](./../images/02-lab-images/openshift-online-login.png
+![openshift-online-login.png](./../images/02-lab-images/openshift-online-login.png
         
-        ![login-with-developer-account.png](./../images/02-lab-images/login-with-developer-account.png)
+![login-with-developer-account.png](./../images/02-lab-images/login-with-developer-account.png)
 
 1. Go to https://manage.openshift.com/ and login using RH Developer Credentials
 
-        ![open-webconsole-start.png](./../images/02-lab-images/open-webconsole-start.png)
+![open-webconsole-start.png](./../images/02-lab-images/open-webconsole-start.png)
 
 2. Click link to go to OpenShift Management Console
 
-        ![copy-login-command.png](./../images/02-lab-images/copy-login-command.png)
+![copy-login-command.png](./../images/02-lab-images/copy-login-command.png)
 
 3. Upper right hand corner <copy login command>
   
-  ```
+```
 [marycochran@localhost RHSummit2018Camel3ScaleLab]$ oc login https://api.starter-ca-central-1.openshift.com --token=<MYTOKEN>
 Logged into "https://api.starter-ca-central-1.openshift.com:443" as "rhn-gps-mcochran" using the token provided.
 
