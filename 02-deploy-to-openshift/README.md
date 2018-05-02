@@ -2,7 +2,7 @@
 
 This lab assumes you have an Open Shift Online free account.  If you do not, please go to Step 00 here: https://github.com/mmistretta/RHSummit2018Camel3ScaleLab/tree/master/00-create-openshift-online-account
 
-![openshift-online-login.png](./../images/02-lab-images/openshift-online-login.png
+![openshift-online-login.png](./../images/02-lab-images/openshift-online-login.png)
         
 ![login-with-developer-account.png](./../images/02-lab-images/login-with-developer-account.png)
 
