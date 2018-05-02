@@ -17,10 +17,46 @@ Take note of the Application class and the ServletRegistrationBean.  This is nec
         return registration;
     }
 ```
+The src/main/faric8/deployment.yml configures the deployment parameters, such as how much memory to give a pod
+
+```spec:
+  template:
+    spec:
+      containers:
+        - 
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: 256Mi
+            limits:
+              cpu: "1.0"
+              memory: 256Mi
+```
+
+Take note of the Fabric8 Maven plugin.  This allows for you to deploy to your Open Shift container right from your command line.
+
+```xml
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>${fabric8.maven.plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>resource</goal>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+```
   
 ## Write Your Camel Route
-Before writing your own route you will need to create a new package for it.  Create the package/folder 'my.project.route'.
-Then create a class for your route.  You can name it whatever you would like such as `MyRoute`. Make this class extend the RouteBuilder class. Also add the @Component annotation to the class itself. Finally, you will need to write your Camel route inside the configure() method.  The following route can be used, but you can also feel free to write your own.  Directions will go off of this route.
+1. Before writing your own route you will need to create a new package for it.  Create the package/folder 'my.project.route'.
+2. Then create a class for your route.  You can name it whatever you would like such as `MyRoute`. 
+3. Make this class extend the RouteBuilder class. 
+4. Also add the @Component annotation to the class itself. 
+5. Finally, you will need to write your Camel route inside the configure() method.  The following route can be used, but you can also feel free to write your own.  Directions will go off of this route.
 ```java
         restConfiguration()
         	.component("servlet")
@@ -41,7 +77,7 @@ To initially test your Camel route you can run it using standalone spring-boot. 
 ```
 mvn spring-boot:run
 ```
-Leaving your route running in a separate terminal or using a browser try and hit your API.  If using a terminal run the following command:
+Leaving your route running in the terminal and using a separate terminal or browser try and hit your API.  If using a terminal run the following command:
 ```
 curl http://localhost:8080/camel/hello
 ```
