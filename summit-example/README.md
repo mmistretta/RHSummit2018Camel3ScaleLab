@@ -1,6 +1,6 @@
 # Spring-Boot and Camel Rest DSL QuickStart
 
-Use this finished Camel Project as needed if you do not have time to complete your own Rest route or if you need some help. 
+Use this Camel Project as a template to get you started. 
 This example demonstrates how to configure Camel routes in Spring Boot via a Spring Annotation configuration
 
 ### Building

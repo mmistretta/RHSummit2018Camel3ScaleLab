@@ -1,0 +1,10 @@
+/target/
+*target*
+*settings*
+*classpath*
+/.settings/
+*/.settings/*
+*/classpath/*
+.classpath
+.idea
+*.i??

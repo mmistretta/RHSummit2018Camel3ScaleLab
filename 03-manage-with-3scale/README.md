@@ -24,126 +24,103 @@ Before provisioning an on-premise API gateway environment, you will want to chec
 
 > **Note:** Don't forget to copy your token into a safe place as this is the only point where you'll be able to view it. If you fail to do so, you can always create a new access token.
 
-## Step 1: Deploy APIcast using the OpenShift template
-
-1. By default you are logged in as *developer* and can proceed to the next step. Otherwise login into OpenShift using the `oc login` command from the OpenShift Client tools you downloaded and installed in the previous step. The default login credentials are *username = "developer"* and *password = "developer"*:
-    ```
-    oc login https://<OPENSHIFT-SERVER-IP>:8443 -u developer
-    ```
-    You should see Login successful. in the output.
-
-2. Create a new secret to reference your admin portal configuration.
-    ```
-    oc secret new-basicauth apicast-configuration-url-secret --password=https://<ACCESS_TOKEN>@<DOMAIN>-admin.3scale.net
-    ```
-    Here **&lt;ACCESS_TOKEN&gt;** is an Access Token (not a Service Token) for the 3scale Account Management API, and **&lt;DOMAIN&gt;-admin.3scale.net** is the URL of your 3scale Admin Portal.
-
-    > **Note:** You got this access token and domain in the Pre-Reqs section.
-
-    The response should look like this:
-    ```
-    secret/apicast-configuration-url-secret
-    ```
-    
-3. Create an application for your APIcast Gateway from the template, and start the deployment:
-    ```
-    oc new-app -f https://raw.githubusercontent.com/3scale/3scale-amp-openshift-templates/2.0.0.GA-redhat-2/apicast-gateway/apicast.yml
-    ```
-    You should see the following messages at the bottom of the output:
-    ```
-    --> Creating resources ...
-      deploymentconfig "apicast" created
-      service "apicast" created
-    --> Success
-      Run 'oc status' to view your app.
-    ```
-    
-4. In *myfuseproject* and you will see the *Overview* tab.
-
-    Each APIcast instance, upon starting, downloads the required configuration from 3scale using the settings you provided on the **Integration** page of your 3scale Admin Portal. In order to allow your APIcast instances to receive traffic, you'll need to create a route. Start by clicking on **Create Route**.
-
-    Enter the same host you set in 3scale above in the section **Staging Public Base URL** (without the http:// and without the port), in this lab's step 1: `customer-api-staging.<OPENSHIFT-SERVER-IP>.nip.io`, then click the **Create** button.
-    
-5. Now add the production route. This time select `Applications -> Routes` from the left options.
-
-6. Click on the `Create Route` button.
-
-7. Fill in the information.
-
-    **Name:** `apicast-production`
-    **Hostname:** `customer-api-production.<OPENSHIFT-SERVER-IP>.nip.io`
-
-8. Click on the `Create` button in the botton of the page to save the production route.
-
-    Your API Gateways are now ready to receive traffic. OpenShift takes care of load-balancing incoming requests to the route across the two running APIcast instances.
-
-    If you wish to see the APIcast logs, you can do so by clicking **Applications > Pods**, selecting one of the pods and finally selecting **Logs**.
-
-## Step 2: Define your API
+## Step 1: Define your API
 
 Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides access to a number of configuration features.
+
+![3scale-initial-signin.png](./../images/03-lab-images/3scale-initial-signin.png)
 
 1. Login into the Admin Portal:
 
 2. If it's the first time you access the 3scale portal, like when you click the *activate* link from the sign up email, dismiss and close the wizard by clicking on the top right **X**.
 
+![3scale-click-integration.png](./../images/03-lab-images/3scale-click-integration.png)
+
 3. The first page you will land is the API tab. From here we will create our API definition. Click on the `Integration` link.
+
+![3scale-after-click-integration.png](./../images/03-lab-images/3scale-after-click-integration.png)
 
 4. Click on the `edit integration settings` to edit the API settings for the gateway.
 
-5. Select the **APIcast self-managed** Gateway deployment option.
+![3scale-hosted-nginx.png](./../images/03-lab-images/3scale-hosted-nginx.png)
+
+5. Select the **APIcast** (hosted) Gateway deployment option.
+
+![3scale-auth-apikey.png](./../images/03-lab-images/3scale-auth-apikey.png)
 
 6. Keep the **API Key (user_key)** Authentication.
 
 7. Click on **Update Service**
 
-8. Click on the **add the Base URL of your API and save the configuration** button
+![3scale-add-base-url.png](./../images/03-lab-images/3scale-add-base-url.png)
 
-9. Expand the **mapping rules** section to define the allowed methods on our exposed API.
+8. Click on the **add the Base URL of your API and save the configuration** button.  This is the url you can hit from your deployed Open Shift service.
+
+![3scale-add-mapping-rules.png](./../images/03-lab-images/3scale-add-mapping-rules.png)
+
+9. Expand the **mapping rules** section to define the allowed methods on our exposed API. In our example this is `/camel/hello`
     > **Note:** the default mapping is the root ("/") of our API resources, something that we might want to avoid.
 
 10. Click on the **Metric or Method (Define)**  link.
 
+![3scale-new-method.png](./../images/03-lab-images/3scale-new-method.png)
+
 11. Click on the **New Method** link in the *Methods* section.
+
+![3scale-api-new-method-def.png](./../images/03-lab-images/3scale-api-new-method-def.png)
 
 12. Fill in the information for your Fuse Method.
 
-    **Friendly name:** `Get Customers`
-    **System name:** `customers_all`
-    **Description:** `Method to return all customers`
+    **Friendly name:** `hello_World`
+    **System name:** `hello_World`
+    **Description:** `Method to say Hello World`
 
 13. Click on **Create Method**
 
-14. **Optional:** Add the `Get Customer` method if you followed the instructions in the previous part of this lab to search by `{id}`. Name it `customer_get`.
+![3scale-add-mapping-rule.png](./../images/03-lab-images/3scale-add-mapping-rule.png)
 
-15. Click on the **Add mapping rule** link
+14. Click on the **Add mapping rule** link
 
-16. Click on the edit icon next to the GET mapping rule.
+![3scale-added-mapping-rule.png](./../images/03-lab-images/3scale-added-mapping-rule.png)
 
-17. Enter `/myfuselab/customer/all` as the Pattern.
+15. Click on the edit icon next to the GET mapping rule.
 
-18. Select `customers_all` as Method.
+16. Enter `/camel/hello` as the Pattern, or whatever pattern you chose when developing your Camel Route
 
-19. *Optional::* Click on the **Add Mapping Rule** button to add the `customer_get` method mapping.
+18. Select `hello_World` as Method.
 
-20. Fill in the information for accessing your API:
+19. Scroll down to the **API Test GET request**.
 
-    **Private Base URL:** `http://camel-ose-springboot-xml:80`
-    **Staging Public Base URL:** `http://customer-api-staging.<OPENSHIFT-SERVER-IP>.nip.io:80`
-    **Production Public Base URL:** `http://customer-api-production.<OPENSHIFT-SERVER-IP>.nip.io:80`
-    > **Note:** We are using the internal API service, as we are deploying our services inside the same OpenShift cluster.
+![3scale-update-test-request-to-correct-url.png](./../images/03-lab-images/3scale-update-test-request-to-correct-url.png)
 
-21. Scroll down to the **API Test GET request**.
+20. Enter `/camel/hello` or your pattern
 
-22. Enter `/myfuselab/customer/all`.
+![3scale-update-and-test.png](./../images/03-lab-images/3scale-update-and-test.png)
 
-23. Click on the **Update the Staging Environment** to save the changes and then click on the **Back to Integration & Configuration** link.
+![3scale-back-to-integration-and-configuration.png](./../images/03-lab-images/3scale-back-to-integration-and-configuration.png)
 
-24. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+21. Click on the **Update the Staging Environment** to save the changes and then click on the **Back to Integration & Configuration** link.
 
-25. Success! Your 3scale access control layer will now only allow authenticated calls through to your backend API.
+![3scale-promote-to-prod.png](./../images/03-lab-images/3scale-promote-to-prod.png)
 
-## Step 3: Register a new account using the Developer Portal
+22. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+
+23. Success! Your 3scale access control layer will now only allow authenticated calls through to your backend API.
+
+24. Make sure to test your API using curl or a web browser.  It wil be something similar to:
+```
+curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_key=910283921732184328643276dz9asd9324"
+``` 
+
+## Step 2: Play with your API and 3Scale
+
+### Add Rate Limits to Your API
+
+### Setup Alerts
+
+### View Analytics
+
+### Register a new Developer in the Developer Portal
 
 The focal point of your developers’ experience is the API developer portal, and the level of effort you put into it will determine the level of decreased support costs and increased developer engagement. 3scale provides a built-in, state-of-the-art CMS portal, making it very easy to create your own branded hub with a custom domain to manage developer interactions and increase API adoption.
 
@@ -248,3 +225,4 @@ You can see there is a default portal with information of your API and how to si
     The *HTTP/1.1 403 Forbidden* response code indicates that our user_key was wrong or we don't have permisson to access this API endpoint.
 
 3. You have sucessfully configured 3scale API Management and Gateway to access your API.
+
