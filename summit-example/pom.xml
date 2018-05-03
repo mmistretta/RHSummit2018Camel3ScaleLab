@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -7,8 +8,8 @@
   <artifactId>summit-example</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>Fabric8 :: Quickstarts :: Spring-Boot :: Camel XML</name>
-  <description>Spring Boot example running a Camel route defined in XML</description>
+  <name>Fabric8 :: Quickstarts :: Spring-Boot :: Camel</name>
+  <description>Spring Boot example running a Camel route</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,8 +18,18 @@
     <fabric8.maven.plugin.version>3.5.38</fabric8.maven.plugin.version>
 
     <!-- configure the versions you want to use here -->
-    <fabric8.version>2.3.7.fuse-000036-redhat-2</fabric8.version>
-    <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
+
+    <!-- Fuse 6.3 GA version -->
+    <!--<fabric8.version>2.2.170.redhat-000023</fabric8.version>-->
+    <!-- Fuse 7 EA version (TP2) -->
+    <!--<fabric8.version>2.3.7.fuse-000036-redhat-2</fabric8.version>-->
+    <!-- Fuse 7 EA version (TP4) -->
+    <fabric8.version>3.0.8.fuse-000023-redhat-4</fabric8.version>
+
+    <!-- Fuse 6.3 GA version for Spring Boot -->
+    <!--<spring-boot.version>1.4.1.RELEASE</spring-boot.version>-->
+    <!-- Fuse 7 EA version for Spring Boot -->
+    <spring-boot.version>1.5.4.RELEASE</spring-boot.version>
 
     <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
@@ -38,18 +49,18 @@
 
   <dependencies>
     <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
-        <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-swagger-java-starter</artifactId>
-    </dependency>
-        <dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-servlet-starter</artifactId>
     </dependency>
@@ -58,12 +69,8 @@
       <artifactId>camel-jackson-starter</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-swagger-java-starter</artifactId>
     </dependency>
 
     <!-- testing -->
@@ -150,4 +157,94 @@
     </plugins>
 
   </build>
+
+  <!-- used for adding maven repositories to download Fuse JARs -->
+  <profiles>
+    <profile>
+      <id>fuse.repos</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+
+      <repositories>
+        <repository>
+          <id>maven.central</id>
+          <name>Maven Central</name>
+          <url>https://repo1.maven.org/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </repository>
+        <repository>
+          <id>redhat.ga</id>
+          <name>Red Hat General Availability Repository</name>
+          <url>https://maven.repository.redhat.com/ga</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </repository>
+        <repository>
+          <id>redhat.ea</id>
+          <name>Red Hat Early Access Repository</name>
+          <url>https://maven.repository.redhat.com/earlyaccess/all</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </repository>
+
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>maven.central</id>
+          <name>Maven Central</name>
+          <url>https://repo1.maven.org/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
+        <pluginRepository>
+          <id>redhat.ga</id>
+          <name>Red Hat General Availability Repository</name>
+          <url>https://maven.repository.redhat.com/ga</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
+        <pluginRepository>
+          <id>redhat.ea</id>
+          <name>Red Hat Early Access Repository</name>
+          <url>https://maven.repository.redhat.com/earlyaccess/all</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
 </project>

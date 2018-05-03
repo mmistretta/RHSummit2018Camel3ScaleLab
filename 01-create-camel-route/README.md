@@ -5,10 +5,13 @@ Go to a terminal that has git available and do the following:
 ```
   $ git clone https://github.com/mmistretta/RHSummit2018Camel3ScaleLab/tree/master/summit-example
 ```
-Using your favorite editor open up the project.  
+Using your favorite editor open up the project.
   
 ## Review the Code
-Take note of the Application class and the ServletRegistrationBean.  This is necessary to use the Camel Servlet component to write your APIs using the Camel RestDSL. 
+Take note of the Application class and the `ServletRegistrationBean`.  This is necessary to use the Camel Servlet component to write your APIs using the Camel RestDSL.
+
+TIP: In Fuse 7 onwards this is no longer nessasary.
+
 ```java
     @Bean
     public ServletRegistrationBean camelServletRegistrationBean() {
@@ -17,7 +20,7 @@ Take note of the Application class and the ServletRegistrationBean.  This is nec
         return registration;
     }
 ```
-The src/main/faric8/deployment.yml configures the deployment parameters, such as how much memory to give a pod
+The `src/main/faric8/deployment.yml` file configures the deployment parameters, such as how much memory to give a pod:
 
 ```spec:
   template:
@@ -52,11 +55,11 @@ Take note of the Fabric8 Maven plugin.  This allows for you to deploy to your Op
 ```
   
 ## Write Your Camel Route
-1. Before writing your own route you will need to create a new package for it.  Create the package/folder 'my.project.route'.
+1. Before writing your own route you will need to create a new package for it.  Create the package/folder `my.project.route`.
 2. Then create a class for your route.  You can name it whatever you would like such as `MyRoute`. 
-3. Make this class extend the RouteBuilder class. 
-4. Also add the @Component annotation to the class itself. 
-5. Finally, you will need to write your Camel route inside the configure() method.  The following route can be used, but you can also feel free to write your own.  Directions will go off of this route.
+3. Make this class extend the `RouteBuilder` class from Camel. 
+4. Also add the Spring `@Component` annotation to the class itself. 
+5. Finally, you will need to write your Camel route inside the `configure()` method.  The following route can be used, but you can also feel free to write your own.  Directions will go off of this route.
 ```java
         restConfiguration()
         	.component("servlet")
@@ -68,12 +71,12 @@ Take note of the Fabric8 Maven plugin.  This allows for you to deploy to your Op
           
         from("direct:hello")
         	.routeId("log-hello")
-        	.log(LoggingLevel.INFO, "Hello World, <Your Name>")
+        	.log("Hello World, <Your Name>")
         	.transform().simple("Hello World, <Your Name>");
 ```
 
 ## Run and Test Your Camel Route Using Standalone Spring Boot
-To initially test your Camel route you can run it using standalone spring-boot.  This will ensure everything compiles and that your Rest API is working as expected. To do this go to your terminal, browse to your project folder, and run the following:
+To initially test your Camel route you can run it using standalone Spring Boot.  This will ensure everything compiles and that your Rest API is working as expected. To do this go to your terminal, browse to your project folder, and run the following:
 ```
 mvn spring-boot:run
 ```
