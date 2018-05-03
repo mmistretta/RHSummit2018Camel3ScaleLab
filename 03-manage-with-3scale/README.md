@@ -28,28 +28,46 @@ Before provisioning an on-premise API gateway environment, you will want to chec
 
 Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides access to a number of configuration features.
 
+![3scale-initial-signin.png](./../images/03-lab-images/3scale-initial-signin.png)
+
 1. Login into the Admin Portal:
 
 2. If it's the first time you access the 3scale portal, like when you click the *activate* link from the sign up email, dismiss and close the wizard by clicking on the top right **X**.
 
+![3scale-click-integration.png](./../images/03-lab-images/3scale-click-integration.png)
+
 3. The first page you will land is the API tab. From here we will create our API definition. Click on the `Integration` link.
+
+![3scale-after-click-integration.png](./../images/03-lab-images/3scale-after-click-integration.png)
 
 4. Click on the `edit integration settings` to edit the API settings for the gateway.
 
-5. Select the **APIcast** (not self managed) Gateway deployment option.
+![3scale-hosted-nginx.png](./../images/03-lab-images/3scale-hosted-nginx.png)
+
+5. Select the **APIcast** (hosted) Gateway deployment option.
+
+![3scale-auth-apikey.png](./../images/03-lab-images/3scale-auth-apikey.png)
 
 6. Keep the **API Key (user_key)** Authentication.
 
 7. Click on **Update Service**
 
+![3scale-add-base-url.png](./../images/03-lab-images/3scale-add-base-url.png)
+
 8. Click on the **add the Base URL of your API and save the configuration** button.  This is the url you can hit from your deployed Open Shift service.
+
+![3scale-add-mapping-rules.png](./../images/03-lab-images/3scale-add-mapping-rules.png)
 
 9. Expand the **mapping rules** section to define the allowed methods on our exposed API. In our example this is `/camel/hello`
     > **Note:** the default mapping is the root ("/") of our API resources, something that we might want to avoid.
 
 10. Click on the **Metric or Method (Define)**  link.
 
+![3scale-new-method.png](./../images/03-lab-images/3scale-new-method.png)
+
 11. Click on the **New Method** link in the *Methods* section.
+
+![3scale-api-new-method-def.png](./../images/03-lab-images/3scale-api-new-method-def.png)
 
 12. Fill in the information for your Fuse Method.
 
@@ -59,7 +77,11 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 13. Click on **Create Method**
 
+![3scale-add-mapping-rule.png](./../images/03-lab-images/3scale-add-mapping-rule.png)
+
 14. Click on the **Add mapping rule** link
+
+![3scale-added-mapping-rule.png](./../images/03-lab-images/3scale-added-mapping-rule.png)
 
 15. Click on the edit icon next to the GET mapping rule.
 
@@ -69,9 +91,17 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 19. Scroll down to the **API Test GET request**.
 
+![3scale-update-test-request-to-correct-url.png](./../images/03-lab-images/3scale-update-test-request-to-correct-url.png)
+
 20. Enter `/camel/hello` or your pattern
 
+![3scale-update-and-test.png](./../images/03-lab-images/3scale-update-and-test.png)
+
+![3scale-back-to-integration-and-configuration.png](./../images/03-lab-images/3scale-back-to-integration-and-configuration.png)
+
 21. Click on the **Update the Staging Environment** to save the changes and then click on the **Back to Integration & Configuration** link.
+
+![3scale-promote-to-prod.png](./../images/03-lab-images/3scale-promote-to-prod.png)
 
 22. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
 
