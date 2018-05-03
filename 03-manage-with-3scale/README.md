@@ -116,6 +116,32 @@ curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_
 
 ### Add Rate Limits to Your API
 
+![3scale-click-integration.png](./../images/03-lab-images/3scale-click-integration.png)
+
+1. From your 3Scale admin homepage click 'Definition'. 
+
+![3scale-application-plan.png](./../images/03-lab-images/3scale-application-plan.png)
+
+2. From the side bar select 'Application Plans'
+
+![3scale-bsaic-application-plan.png](./../images/03-lab-images/3scale-basic-application-plan.png)
+
+3. Click on Basic
+
+![3scale-edit-application-plan.png](./../images/03-lab-images/3scale-edit-application-plan.png)
+
+![3scale-methods-limits.png](./../images/03-lab-images/3scale-methods-limits.png)
+
+4. Click on Limits next to your method ('hello_World' or other)
+
+![3scale-usage-limit.png](./../images/03-lab-images/3scale-usage-limit.png)
+
+5. Add new Usage Limit
+
+![3scale-update-application-plan.png](./../images/03-lab-images/3scale-update-application-plan.png)
+
+6. Select 'Update Application Plan'
+
 ### Setup Alerts
 
 ### View Analytics
