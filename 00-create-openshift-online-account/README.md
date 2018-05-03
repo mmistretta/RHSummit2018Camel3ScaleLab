@@ -21,7 +21,7 @@ Then go here to create your account: https://www.openshift.com/container-platfor
 
 ## Get OC Tools
 
-To login to your Open Shift instance from you machine you will need to install oc utils. 
+To login to your Open Shift instance from your machine, you will need to install oc utils. 
 
 You can do so from here 
 https://access.redhat.com/downloads/content/293/ver=3.3/rhel---7/3.3/x86_64/product-software
