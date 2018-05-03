@@ -40,8 +40,10 @@ and select 'About' from the drop down when clicking the question mark.
 
 3. Download the appropriate ‘oc’ tool for your operating system
 
+4. Extract the executable file from the tar (on Linux and Mac), or from the zip (on Windows) 
+
 ### Optional
-To use the 'oc' utilities without specifying the location of the file you can add the file to your PATH environment variable or if in a Linux/Unix OS you can move the file to a bin folder. 
+To use the 'oc' tool without specifying the location of the file, you can add the file to your PATH environment variable or if in a Linux/Unix OS, you can move the file to a bin folder. 
 
 In Fedora you could move it to /usr/local/bin/ for example. 
 
