@@ -144,6 +144,16 @@ curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_
 
 ### Setup Alerts
 
+1. From your 3Scale homepage select 'Definition' just like you did above. 
+
+![3scale-select-alerts.png](./../images/03-lab-images/3scale-select-alerts.png)
+
+2. Select 'Alerts' from the side menu
+
+![3scale-check-boxes-alerts.png](./../images/03-lab-images/3scale-check-boxes-alerts.png)
+
+3. Select whatever checkboxes you would like to see for 'Alerts'.  Then hit your API as many times as needed to hit the alert.  
+
 ### View Analytics
 
 ### Register a new Developer in the Developer Portal
