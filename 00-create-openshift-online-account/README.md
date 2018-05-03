@@ -21,7 +21,7 @@ Then go here to create your OpenShift Online account: https://www.openshift.com/
 
 ## Get OC Tools
 
-To login to your Open Shift instance from your machine, you will need to installt the openshift command line tool, ‘oc’. 
+To login to your Open Shift instance from your machine, you will need to installt the OpenShift command line tool, ‘oc’. 
 
 You can do so from here 
 https://access.redhat.com/downloads/content/293/ver=3.3/rhel---7/3.3/x86_64/product-software
