@@ -156,6 +156,10 @@ curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_
 
 ### View Analytics
 
+![3scale-select-analytics.png](./../images/03-lab-images/3scale-select-analytics.png)
+
+1. From any page in your 3Scale admin portal select 'Analytics' from the top bar.  Then browse the analytis as you desire. 
+
 ### Register a new Developer in the Developer Portal
 
 The focal point of your developers’ experience is the API developer portal, and the level of effort you put into it will determine the level of decreased support costs and increased developer engagement. 3scale provides a built-in, state-of-the-art CMS portal, making it very easy to create your own branded hub with a custom domain to manage developer interactions and increase API adoption.
@@ -169,96 +173,56 @@ The Developer Portal's CMS consists of a few elements:
 
 Liquid is a simple programming language used for displaying and processing most of the data from the 3scale system available for API providers. In the 3scale platform, it is used to expose server-side data to your API developers, greatly extending the usefulness of the CMS while maintaining a high level of security.
 
+![3scale-developer-portal-tab.png](./../images/03-lab-images/3scale-developer-portal-tab.png)
+
 1. Click on the `Developer Portal` tab to access the developer portal settings.
+
+![3scale-default-developer-portal.png](./../images/03-lab-images/3scale-default-developer-portal.png)
+
 2. Click on the `Visit Developer Portal` to take a look of how your developer portal looks like.
 
 You can see there is a default portal with information of your API and how to signup. Unfortunately the API information is incorrect.
-    > **Note:** We will edit our portal to update it with the correct information and to add the shadowman cool logo.
+    > **Note:** We will edit our portal to update it with the correct information 
 
-3. Go back to your admin portal browser tab and search the content sub-sections for the `Layouts `and select the `</> Main layout`
+![3scale-developer-portal-homepage.png](./../images/03-lab-images/3scale-developer-portal-homepage.png)
 
-4. First look for the `navbar` section of the main HTML. Replace the `{{ provider.name }}` for the shadowman image link:
+4. Go back to browse the top of the content sub-sections and find the `Homepage` section.
 
-5. Click on `Publish` button at the bottom of the editor to save the changes and made them available in the site.
+5. Change all the code `Echo` references in the homepage code for `Hello World`.
 
-6. Go back to browse the top of the content sub-sections and find the `Homepage` section.
-
-7. Change all the code `Echo` references in the homepage code for `Customer`.
-
-8. Update the API call examples to reflect your real Fuse API calls.
+6. Update the API call examples to reflect your real Fuse API calls.
     > **Note:** Use your production base url and add your defined methods. Dont worry if you don't have the "real" output, it won't affect the rest of the lab.
 
-8. Refresh your Developer Portal's browser tab to check the changes. Your Developer Portal should look like this:
+7. Refresh your Developer Portal's browser tab to check the changes.
 
-10. Take the place of one of your developers and signup for the **Basic** plan.
+![3scale-developer-portal-signup.png](./../images/03-lab-images/3scale-developer-portal-signup.png)
 
-11. Fill in your information and your email to register as a developer. Click on the `Sign up` button.
+8. Take the place of one of your developers and signup for the **Basic** plan.
+
+![3scale-developer-portal-signup-details.png](./../images/03-lab-images/3scale-developer-portal-signup-details.png)
+
+9. Fill in your information and your email to register as a developer. Click on the `Sign up` button.
     > **Note:** Use an email address you can actually access.
 
-12. Check your email and click on the `activate` link.
+![3scale-signup-email.png](./../images/03-lab-images/3scale-signup-email.png)
 
-13. As your portal is not currently public, you will need your portal code to finish the registration. You can get the code in your admin portal navigating to: `Settings > Developer Portal > Domains & Access`.
+10. Check your email and click on the `activate` link.
 
-14. Type your portal code to finish the account activation.
+![3scale-developer-portal-access-code.png](./../images/03-lab-images/3scale-developer-portal-access-code.png)
 
-15. Now that your developer account is active, sign in the portal.
+11. As your portal is not currently public, you will need your portal code to finish the registration. You can get the code in your admin portal navigating to: `Settings > Developer Portal > Domains & Access`.
 
-16. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your `User Key`.
+![3scale-developer-portal-type-in-code.png](./../images/03-lab-images/3scale-developer-portal-type-in-code.png)
+
+12. Type your portal code to finish the account activation.
+
+![3scale-developer-portal-signin.png](./../images/03-lab-images/3scale-developer-portal-signin.png)
+
+13. Now that your developer account is active, sign in the portal.
+
+![3scale-get-api-key.png](./../images/03-lab-images/3scale-get-api-key.png)
+
+14. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your `User Key`.
     > **Note:** Copy down this key as it is used to authenticate yourself to the managed API.
     
-## Step 4: Test APIcast
-
-1. Test that APIcast authorizes a valid call to your API, by executing a curl command with your valid developer's `user_key` to the `hostname` that you configured in the previous step:
-
-    ```
-    curl -i "http://customer-api-production.<OPENSHIFT-SERVER-IP>.nip.io:80/myfuselab/customer/all?user_key=YOUR_USER_KEY" --insecure
-    ```
-    You should see the following messages:
-
-    ```
-    HTTP/1.1 200 OK
-    Server: openresty/1.11.2.2
-    Date: Tue, 30 May 2017 20:13:33 GMT
-    Content-Type: application/json
-    Transfer-Encoding: chunked
-    X-Application-Context: application:dev
-    accept: */*
-    breadcrumbId: ID-traveler-laptop-rh-mx-redhat-com-45222-1496169770755-0-16
-    forwarded: for=192.168.42.1;host=customer-api-staging.192.168.42.100.nip.io;proto=http
-    user-agent: curl/7.29.0
-    user_key: c13de99abb137810df23ce011d2a948a
-    x-3scale-proxy-secret-token: Shared_secret_sent_from_proxy_to_API_backend_71cfe31d89d8cf53
-    x-forwarded-for: 192.168.42.1
-    x-forwarded-host: customer-api-staging.192.168.42.100.nip.io
-    x-forwarded-port: 80
-    x-forwarded-proto: http
-    x-real-ip: 172.17.0.1
-    Set-Cookie: e286b151c44656235d8bdca6ee183477=e58d9930d57779957bf1695b6c805dcd; path=/; HttpOnly
-    Cache-control: private
-
-    [{"CUSTOMERID":"A01","VIPSTATUS":"Diamond","BALANCE":1000},{"CUSTOMERID":"A02","VIPSTATUS":"Gold","BALANCE":500}]
-    ```
-
-    The last line is the same output as when calling the API directly.
-
-2. Test that APIcast does not authorize an invalid call to your API.
-
-    ```
-    curl -i "http://customer-api-production.<OPENSHIFT-SERVER-IP>.nip.io:80/myfuselab/customer/all?user_key=INVALID_KEY" --insecure
-    ```
-
-    When calling the API endpoint with an invalid key, the following messages appear:
-
-    ```
-    HTTP/1.1 403 Forbidden
-    Server: openresty/1.11.2.2
-    Date: Tue, 30 May 2017 20:17:19 GMT
-    Content-Type: text/plain; charset=us-ascii
-    Transfer-Encoding: chunked
-    Set-Cookie: e286b151c44656235d8bdca6ee183477=e58d9930d57779957bf1695b6c805dcd; path=/; HttpOnly
-    ```
-
-    The *HTTP/1.1 403 Forbidden* response code indicates that our user_key was wrong or we don't have permisson to access this API endpoint.
-
-3. You have sucessfully configured 3scale API Management and Gateway to access your API.
-
+15. Now you can make test requests to your API using this api key
