@@ -6,3 +6,5 @@
 */.settings/*
 */classpath/*
 .classpath
+.idea
+*.i??
