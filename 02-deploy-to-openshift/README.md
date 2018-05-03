@@ -35,7 +35,12 @@ Using project "mary-test".
 
 7. Run ‘mvn fabric8:deploy’ in terminal 
 
+![3scale-select-project.png](./../images/02-lab-images/3scale-select-project.png)
+
 8. From your openshift console Select your project
+
+![3scale-click-link.png](./../images/02-lab-images/3scale-click-link.png)
+
 9. Copy the link in the top right hand corner of your application listing
 
 ```
