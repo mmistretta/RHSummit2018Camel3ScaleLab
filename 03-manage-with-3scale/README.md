@@ -156,6 +156,10 @@ curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_
 
 ### View Analytics
 
+![3scale-select-analytics.png](./../images/03-lab-images/3scale-select-analytics.png)
+
+1. From any page in your 3Scale admin portal select 'Analytics' from the top bar.  Then browse the analytis as you desire. 
+
 ### Register a new Developer in the Developer Portal
 
 The focal point of your developers’ experience is the API developer portal, and the level of effort you put into it will determine the level of decreased support costs and increased developer engagement. 3scale provides a built-in, state-of-the-art CMS portal, making it very easy to create your own branded hub with a custom domain to manage developer interactions and increase API adoption.
@@ -169,13 +173,18 @@ The Developer Portal's CMS consists of a few elements:
 
 Liquid is a simple programming language used for displaying and processing most of the data from the 3scale system available for API providers. In the 3scale platform, it is used to expose server-side data to your API developers, greatly extending the usefulness of the CMS while maintaining a high level of security.
 
+![3scale-developer-portal-tab.png](./../images/03-lab-images/3scale-developer-portal-tab.png)
+
 1. Click on the `Developer Portal` tab to access the developer portal settings.
+
+![3scale-default-developer-portal.png](./../images/03-lab-images/3scale-default-developer-portal.png)
+
 2. Click on the `Visit Developer Portal` to take a look of how your developer portal looks like.
 
 You can see there is a default portal with information of your API and how to signup. Unfortunately the API information is incorrect.
     > **Note:** We will edit our portal to update it with the correct information 
 
-3. Go back to your admin portal browser tab and search the content sub-sections for the `Layouts `and select the `</> Main layout`
+![3scale-developer-portal-homepage.png](./../images/03-lab-images/3scale-developer-portal-homepage.png)
 
 4. Go back to browse the top of the content sub-sections and find the `Homepage` section.
 
@@ -184,20 +193,34 @@ You can see there is a default portal with information of your API and how to si
 6. Update the API call examples to reflect your real Fuse API calls.
     > **Note:** Use your production base url and add your defined methods. Dont worry if you don't have the "real" output, it won't affect the rest of the lab.
 
-7. Refresh your Developer Portal's browser tab to check the changes. Your Developer Portal should look like this:
+7. Refresh your Developer Portal's browser tab to check the changes.
+
+![3scale-developer-portal-signup.png](./../images/03-lab-images/3scale-developer-portal-signup.png)
 
 8. Take the place of one of your developers and signup for the **Basic** plan.
+
+![3scale-developer-portal-signup-details.png](./../images/03-lab-images/3scale-developer-portal-signup-details.png)
 
 9. Fill in your information and your email to register as a developer. Click on the `Sign up` button.
     > **Note:** Use an email address you can actually access.
 
+![3scale-signup-email.png](./../images/03-lab-images/3scale-signup-email.png)
+
 10. Check your email and click on the `activate` link.
+
+![3scale-developer-portal-access-code.png](./../images/03-lab-images/3scale-developer-portal-access-code.png)
 
 11. As your portal is not currently public, you will need your portal code to finish the registration. You can get the code in your admin portal navigating to: `Settings > Developer Portal > Domains & Access`.
 
+![3scale-developer-portal-type-in-code.png](./../images/03-lab-images/3scale-developer-portal-type-in-code.png)
+
 12. Type your portal code to finish the account activation.
 
+![3scale-developer-portal-signin.png](./../images/03-lab-images/3scale-developer-portal-signin.png)
+
 13. Now that your developer account is active, sign in the portal.
+
+![3scale-get-api-key.png](./../images/03-lab-images/3scale-get-api-key.png)
 
 14. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your `User Key`.
     > **Note:** Copy down this key as it is used to authenticate yourself to the managed API.
