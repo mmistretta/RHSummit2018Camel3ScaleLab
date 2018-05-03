@@ -107,7 +107,20 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 23. Success! Your 3scale access control layer will now only allow authenticated calls through to your backend API.
 
-## Step 2: Register a new account using the Developer Portal
+24. Make sure to test your API using curl or a web browser.  It wil be something similar to:
+```
+curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_key=910283921732184328643276dz9asd9324"
+``` 
+
+## Step 2: Play with your API and 3Scale
+
+### Add Rate Limits to Your API
+
+### Setup Alerts
+
+### View Analytics
+
+### Register a new Developer in the Developer Portal
 
 The focal point of your developers’ experience is the API developer portal, and the level of effort you put into it will determine the level of decreased support costs and increased developer engagement. 3scale provides a built-in, state-of-the-art CMS portal, making it very easy to create your own branded hub with a custom domain to manage developer interactions and increase API adoption.
 
@@ -212,3 +225,4 @@ You can see there is a default portal with information of your API and how to si
     The *HTTP/1.1 403 Forbidden* response code indicates that our user_key was wrong or we don't have permisson to access this API endpoint.
 
 3. You have sucessfully configured 3scale API Management and Gateway to access your API.
+
