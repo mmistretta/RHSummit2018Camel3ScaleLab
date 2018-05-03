@@ -5,7 +5,7 @@ Go to a terminal that has git available and do the following:
 ```
   $ git clone https://github.com/mmistretta/RHSummit2018Camel3ScaleLab.git
 ```
-Using your favorite IDE, open up the project.
+Using your favorite IDE, open up the summit-example project.
   
 ## Review the Code
 Take note of the Application class and the `ServletRegistrationBean`.  This is necessary to use the Camel Servlet component to write your APIs using the Camel RestDSL.
