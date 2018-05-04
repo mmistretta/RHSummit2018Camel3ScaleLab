@@ -3,6 +3,19 @@
 Use this Camel Project as a template to get you started. 
 This example demonstrates how to configure Camel routes in Spring Boot via a Spring Annotation configuration
 
+### Running standalone
+
+You can run this example local standalone via
+
+    mvn spring-boot:run
+    
+And then call the REST service from a web browser or via command line `curl` command:
+
+    http://localhost:8080/camel/hello
+    
+    curl http://localhost:8080/camel/hello
+        
+
 ### Building
 
 The example can be built with
