@@ -28,27 +28,47 @@ Using project "mary-test".
 4. Go to terminal window and paste the copied oc login command
 
 5. Creating a new project (if you do not already have 1, if you have one use that) using 'oc new-project <yourName>-RHSummit2018-project'
+        
+6. In your Camel project open up the pom.xml in the base folder of the project
 
-6. Browse to Camel project in terminal
+7.  Add this code to support the fabric8 maven plugin. This allows for you to deploy to your Open Shift container right from your command line.
+
+```xml
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>${fabric8.maven.plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>resource</goal>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+```
+
+8. Browse to Camel project in terminal
 
 <TODO insert text from end of output for fabric8:deploy> 
 
-7. Run ‘mvn fabric8:deploy’ in terminal 
+9. Run ‘mvn fabric8:deploy’ in terminal 
 
 ![3scale-select-project.png](./../images/02-lab-images/3scale-select-project.png)
 
-8. From your openshift console Select your project
+10. From your openshift console Select your project
 
 ![3scale-click-link.png](./../images/02-lab-images/3scale-click-link.png)
 
-9. Copy the link in the top right hand corner of your application listing
+11. Copy the link in the top right hand corner of your application listing
 
 ```
 curl http://summit-example-mary-test.193b.starter-ca-central-1.openshiftapps.com/camel/hello
 ```
 
-10. Paste this url + '/camel/hello' or whatever path you chose into a browse and hit enter or did a curl request
+12. Paste this url + '/camel/hello' or whatever path you chose into a browse and hit enter or did a curl request
 ```json
 {"response":"Hello World","name":"your name"}
 ```
-11. You should see a nice json response the same way you did locally
+13. You should see a nice json response the same way you did locally
