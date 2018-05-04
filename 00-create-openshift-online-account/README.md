@@ -3,7 +3,7 @@
 ## Create Account
 
 To create an OpenShift Online account, you will first need to have a Red Hat Developer account.
-https://developers.redhat.com/auth/realms/rhd/protocol/openid-connect/registrations?client_id=web&redirect_uri=https%3A%2F%2Fdevelopers.redhat.com%2F%2Fconfirmation&state=2fcb17ca-3295-44eb-88d3-6c89851f1753&nonce=6aca0b15-7b68-42e0-858a-ad27f5c65983&response_mode=fragment&response_type=code&scope=openid
+https://developers.redhat.com/
 
 Then go here to create your OpenShift Online account: https://www.openshift.com/container-platform/
 
@@ -32,7 +32,7 @@ and select 'About' from the drop down when clicking the question mark.
 
 ![openshift-online-command-line.png](./../images/00-lab-images/openshift-online-command-line.png)
 
-2. Select the 'Command Link Tools' link
+2. Select the 'Command Line Tools' link
 
 ![openshift-online-download-oc.png](./../images/00-lab-images/openshift-online-download-oc.png)
 
@@ -50,6 +50,9 @@ In Fedora you could move it to /usr/local/bin/ or ~/bin for example.
 2. Select the Advanced tab.
 3. Click the Environment Variables button.
 4. Under System Variables, select Path, then click Edit.
-5. You'll see a list of folders. For example, my system shows: `C:\Program Files\Windows Resource Kits\Tools\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program Files\Support Tools\;C:\Program Files\Common Files\Roxio Shared\DLLShared;C:\Program Files\Common Files\Ulead Systems\MPEG;C:\Program Files\Intel\DMIX;C:\Program Files\Executive Software\Diskeeper\;C:\Program Files\Bonjour\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Misc`
-6. You can add additional folders that you want to include in your path. Simply put "<folder to add>;" to the beginning of the PATH and click OK
+5. You'll see a list of folders. For example, my system shows:
+```
+C:\Program Files\Windows Resource Kits\Tools\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program Files\Support Tools\;C:\Program Files\Common Files\Roxio Shared\DLLShared;C:\Program Files\Common Files\Ulead Systems\MPEG;C:\Program Files\Intel\DMIX;C:\Program Files\Executive Software\Diskeeper\;C:\Program Files\Bonjour\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Misc
+```
+6. You can add additional folders that you want to include in your path. Simply put "<folder with 'oc' tool>;" to the beginning of the PATH and click OK
 7. You'll need to restart the command prompt to use the updated system path.
