@@ -2,10 +2,10 @@
 
 ## Create Account
 
-To create an OpenShift online account you will first need to have a rh developer account.
+To create an OpenShift Online account, you will first need to have a Red Hat Developer account.
 https://developers.redhat.com/auth/realms/rhd/protocol/openid-connect/registrations?client_id=web&redirect_uri=https%3A%2F%2Fdevelopers.redhat.com%2F%2Fconfirmation&state=2fcb17ca-3295-44eb-88d3-6c89851f1753&nonce=6aca0b15-7b68-42e0-858a-ad27f5c65983&response_mode=fragment&response_type=code&scope=openid 
 
-Then go here to create your account: https://www.openshift.com/container-platform/
+Then go here to create your OpenShift Online account: https://www.openshift.com/container-platform/
 
 ![Signup-for-free.png](./../images/00-lab-images/Signup-for-free.png)
 
@@ -21,7 +21,7 @@ Then go here to create your account: https://www.openshift.com/container-platfor
 
 ## Get OC Tools
 
-To login to your Open Shift instance from you machine you will need to install oc utils. 
+To login to your Open Shift instance from your machine, you will need to installt the OpenShift command line tool, ‘oc’. 
 
 You can do so from here 
 https://access.redhat.com/downloads/content/293/ver=3.3/rhel---7/3.3/x86_64/product-software
@@ -40,8 +40,10 @@ and select 'About' from the drop down when clicking the question mark.
 
 3. Download the appropriate ‘oc’ tool for your operating system
 
+4. Extract the executable file from the tar (on Linux and Mac), or from the zip (on Windows) 
+
 ### Optional
-To use the 'oc' utilities without specifying the location of the file you can add the file to your PATH environment variable or if in a Linux/Unix OS you can move the file to a bin folder. 
+To use the 'oc' tool without specifying the location of the file, you can add the file to your PATH environment variable or if in a Linux/Unix OS, you can move the file to a bin folder. 
 
 In Fedora you could move it to /usr/local/bin/ for example. 
 
