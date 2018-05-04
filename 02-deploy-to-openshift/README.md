@@ -74,7 +74,9 @@ You don't have any projects. You can try to create a new project, by running
 
 ![3scale-click-link.png](./../images/02-lab-images/3scale-click-link.png)
 
-11. Paste this route url + '/camel/hello' into a browser or curl request
+11. Paste this route url + '/camel/hello' into a browser or curl request after the deployment is complete
+
+> NOTE: The OpenShift deployment completed when you see a blue circle with one or more pods shown as running
 
 ```
 curl http://summit-example-mary-test.193b.starter-ca-central-1.openshiftapps.com/camel/hello
