@@ -50,8 +50,21 @@ Using project "mary-test".
 ```
 
 8. Browse to Camel project in terminal
-
-<TODO insert text from end of output for fabric8:deploy> 
+```
+[INFO] F8: Pushed 18/26 layers, 69% complete
+[INFO] F8: Pushed 19/26 layers, 73% complete
+[INFO] F8: Pushed 20/26 layers, 77% complete
+[INFO] F8: Pushed 21/26 layers, 81% complete
+[INFO] F8: Pushed 22/26 layers, 85% complete
+[INFO] F8: Pushed 23/26 layers, 89% complete
+[INFO] F8: Pushed 24/26 layers, 93% complete
+[INFO] F8: Pushed 25/26 layers, 96% complete
+[INFO] Current reconnect backoff is 8000 milliseconds (T3)
+[INFO] F8: Pushed 26/26 layers, 100% complete
+[INFO] Current reconnect backoff is 16000 milliseconds (T4)
+[INFO] F8: Push successful
+[INFO] F8: Build summit-example-s2i-6 Complete
+```
 
 9. Run ‘mvn fabric8:deploy’ in terminal 
 
