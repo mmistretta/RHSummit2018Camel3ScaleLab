@@ -36,11 +36,15 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    // You can manually register a servlet registration in Spring Boot, but this is not necessary with Fuse 7 onwards.
+    // If you want to configure the CamelServlet to use a different context-path than /camel/* then this can be configured
+    // in the src/main/resources/application.properties file.
+    /*
     @Bean
     public ServletRegistrationBean camelServletRegistrationBean() {
         ServletRegistrationBean registration = new ServletRegistrationBean(new CamelHttpTransportServlet(), "/camel/*");
         registration.setName("CamelServlet");
         return registration;
-    }
+    }*/
 
 }
