@@ -17,7 +17,7 @@ Then go here to create your OpenShift Online account: https://www.openshift.com/
 
 ![openshift-online-email.png](./../images/00-lab-images/openshift-online-email.png)
 
-3. Wait for email
+3. Wait for email, then click on link to console in email
 
 ## Get OC Tools
 
