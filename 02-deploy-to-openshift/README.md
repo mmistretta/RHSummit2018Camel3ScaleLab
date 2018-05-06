@@ -27,7 +27,7 @@ Using project "mary-test".
   
 4. Go to terminal window and paste the copied oc login command
 
-5. Creating a new project (if you do not already have 1, if you have one use that) using 'oc new-project <yourName>-RHSummit2018-project'
+5. Creating a new project (if you do not already have 1, if you have one use that) using 'oc new-project yourName-RHSummit2018-project'
         
 6. In your Camel project open up the pom.xml in the base folder of the project
 
