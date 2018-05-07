@@ -16,12 +16,18 @@
  */
 package my.project.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Model class with response for the REST /hello service.
  */
+@ApiModel
 public class ResponseObject {
-	
+
+    @ApiModelProperty("The hello response message")
 	private String response;
+    @ApiModelProperty("Name to say hello to")
 	private String name;
 	
 	public String getResponse() {

@@ -35,11 +35,16 @@ public class HelloWorldRoute extends RouteBuilder {
         // configures rest-dsl to use servlet component and in JSon mode
         restConfiguration()
         	.component("servlet")
-    		.bindingMode(RestBindingMode.json);
+    		.bindingMode(RestBindingMode.json)
+            // enable swagger API doc from /api context-path
+            .apiContextPath("api")
+            // set additional properties for swagger API
+            .apiProperty("api.version", "1.2.3");
 
         // rest-dsl with a single GET /hello service
         rest()
-        	.get("/hello")
+        	.get("/hello").id("hello").description("Service to say Hello to you")
+                .outType(ResponseObject.class)
     	    	.to("direct:hello");
 
         // route called from REST service that builds a response message
