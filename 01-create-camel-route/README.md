@@ -8,19 +8,12 @@ Go to a terminal that has git available and do the following:
 Using your favorite IDE, open up the summit-example project.
   
 ## Review the Code
-Take note of the Application class and the `ServletRegistrationBean`.  This is necessary to use the Camel Servlet component to write your APIs using the Camel RestDSL.
 
-TIP: In Fuse 7 onwards this is no longer nessasary.
+Take note of the `Application` class which is a standard Spring Boot application class.
 
-```java
-    @Bean
-    public ServletRegistrationBean camelServletRegistrationBean() {
-        ServletRegistrationBean registration = new ServletRegistrationBean(new CamelHttpTransportServlet(),"/camel/*");
-        registration.setName("CamelServlet");
-        return registration;
-    }
-```
-The `src/main/faric8/deployment.yml` file configures the deployment parameters, such as how much memory to give a pod:
+### OpenShift deployment
+
+The `src/main/faric8/deployment.yml` file configures the deployment parameters, such as how much memory to give the application when running in OpenShift (we deploy to OpenShift in follow lab - 02):
 
 ```spec:
   template:
@@ -36,7 +29,23 @@ The `src/main/faric8/deployment.yml` file configures the deployment parameters, 
               memory: 256Mi
 ```
   
+### Using Fuse 6.3
+
+Take note of the `ServletRegistrationBean`.  This is necessary to use the Camel Servlet component to write your APIs using the Camel RestDSL.
+
+In Fuse 7 onwards this is no longer nessasary, and therefore its not nessasary to write this code in this lab, because we are using Fuse 7.
+
+```java
+    @Bean
+    public ServletRegistrationBean camelServletRegistrationBean() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(new CamelHttpTransportServlet(),"/camel/*");
+        registration.setName("CamelServlet");
+        return registration;
+    }
+```
+
 ## Write Your Camel Route
+
 1. Before writing your own route, you will need to create a new package for it.  Create the package/folder `my.project.route` and another one called `my.project.model`.  These packages will house your route and java object accordingly. 
 2. Then create your POJO.  You can call it whatever you wish.  For the directions we will use the name `ResponseObject`. 
 ```java
@@ -50,12 +59,15 @@ public class ResponseObject {
 	public String getResponse() {
 		return response;
 	}
+
 	public void setResponse(String response) {
 		this.response = response;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -79,21 +91,22 @@ public class ResponseObject {
 ```java
         // configures rest-dsl to use servlet component and in JSon mode
         restConfiguration()
-        	.component("servlet")
-    		.bindingMode(RestBindingMode.json);
+          .component("servlet")
+          .bindingMode(RestBindingMode.json);
 
         // rest-dsl with a single GET /hello service
         rest()
-        	.get("/hello")
-    	    	.to("direct:hello");
+          .get("/hello")
+    	      .to("direct:hello");
 
         // route called from REST service that builds a response message
         from("direct:hello")
-        	.log("Hello World")
-            .bean(this, "createResponse");
+          .log("Hello World")
+          .bean(this, "createResponse");
 ```
 
 ## Run and Test Your Camel Route Using Standalone Spring Boot
+
 To initially test your Camel route, you can run it using standalone Spring Boot.  This will ensure everything compiles and that your Rest API is working as expected. To do this go to your terminal, browse to your project folder, and run the following:
 ```
 mvn spring-boot:run
