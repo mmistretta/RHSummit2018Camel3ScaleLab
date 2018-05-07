@@ -89,6 +89,10 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 18. Select `hello_World` as Method.
 
+![base-url.jpg](./../images/03-lab-images/base-url.jpg)
+
+19. Scroll up and update the base url to the route url from Open Shift, similar to `http://summit-example-rh-summit-isaas.1d35.starter-us-east-1.openshiftapps.com`
+
 19. Scroll down to the **API Test GET request**.
 
 ![3scale-update-test-request-to-correct-url.png](./../images/03-lab-images/3scale-update-test-request-to-correct-url.png)
