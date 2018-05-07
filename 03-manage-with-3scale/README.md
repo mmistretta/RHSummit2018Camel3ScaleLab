@@ -36,7 +36,7 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 ![3scale-click-integration.png](./../images/03-lab-images/3scale-click-integration.png)
 
-3. The first page you will land is the API tab. From here we will create our API definition. Click on the `Integration` link.
+3. The first page you will land is the API tab. From here we will create our API definition. Click on the `Integration` link. Note: If you do not land on this page simply click API in the upper right hand corner. 
 
 ![3scale-after-click-integration.png](./../images/03-lab-images/3scale-after-click-integration.png)
 
