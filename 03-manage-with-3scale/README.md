@@ -128,7 +128,7 @@ curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_
 
 2. From the side bar select 'Application Plans'
 
-![3scale-bsaic-application-plan.png](./../images/03-lab-images/3scale-basic-application-plan.png)
+![3scale-basic-application-plan.png](./../images/03-lab-images/3scale-basic-application-plan.png)
 
 3. Click on Basic
 

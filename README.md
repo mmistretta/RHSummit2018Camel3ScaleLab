@@ -8,9 +8,9 @@ This very simple lab will guide you to create your very first Fuse-based SpringB
 
 ## Prerequisites
 
-- Maven 3.5 or above
-- JDK 1.8 or above
-- Git
+- Maven 3.5 or above (https://maven.apache.org/install.html)
+- JDK 1.8 or above (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- Git (https://git-scm.com/download/win)
 - Red Hat Developer Account
   https://developers.redhat.com/
 - Free Trial Account with 3scale
