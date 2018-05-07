@@ -229,4 +229,4 @@ You can see there is a default portal with information of your API and how to si
 14. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your `User Key`.
     > **Note:** Copy down this key as it is used to authenticate yourself to the managed API.
 
-15. Now you can make test requests to your API using this api key
+15. Now you can make test requests to your API using this key.
