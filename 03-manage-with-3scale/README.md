@@ -89,7 +89,7 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 18. Select `hello_World` as Method.
 
-![base-url.jpg](./../images/03-lab-images/base-url.jpg)
+![base-url.JPG](./../images/03-lab-images/base-url.JPG)
 
 19. Scroll up and update the base url to the route url from Open Shift, similar to `http://summit-example-rh-summit-isaas.1d35.starter-us-east-1.openshiftapps.com`
 
