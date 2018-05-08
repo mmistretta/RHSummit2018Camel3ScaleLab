@@ -169,4 +169,20 @@ Then you should see the API documentation outputted in JSon format such as:
   }
 }
 ```    
+# Adding Swagger Docs to 3Scale
 
+![3scale-swagger-api.png](./../images/04-lab-images/3scale-swagger-api.png)
+
+From your 3Scale admin console select API from the top menu. 
+
+![3scale-swagger-activedocs.png](./../images/04-lab-images/3scale-swagger-activedocs.png)
+
+Then select `Active Docs`
+
+![3scale-swagger-create-spec.png](./../images/04-lab-images/3scale-swagger-create-spec.png)
+
+Select Create New Spec in the upper right hand corner. 
+
+![3scale-swagger-new-service-details.png](./../images/04-lab-images/3scale-swagger-new-service-details.png)
+
+Then fill in the details for your spec and copy/paste the json in. Click `Create Service`

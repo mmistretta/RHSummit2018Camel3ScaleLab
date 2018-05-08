@@ -1,8 +1,8 @@
 # RHSummit2018Camel3ScaleLab
 
-This very simple lab will guide you to create your very first Fuse-based SpringBoot microservice project running on OpenShift and managed by 3Scale. There are 3 sections in the labs.
+This very simple lab will guide you to create your very first Fuse-based SpringBoot microservice project running on OpenShift and managed by 3scale. There are 3 sections in the lab.
 
-- Expose a restful API endpoint using Camel Rest DSL
+- Expose a RESTful API endpoint using Camel REST DSL
 - Deploy your application on OpenShift
 - Manage and control the access to your API using 3scale
 
@@ -13,5 +13,3 @@ This very simple lab will guide you to create your very first Fuse-based SpringB
 - Git (https://git-scm.com/download/win)
 - Red Hat Developer Account (http://developers.redhat.com/register)
 - Free Trial Account with 3Scale (https://www.3scale.net/signup/)
-
-
