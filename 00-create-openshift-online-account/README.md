@@ -3,7 +3,7 @@
 ## Create Account
 
 To create an OpenShift Online account, you will first need to have a Red Hat Developer account.
-https://developers.redhat.com/
+http://developers.redhat.com/register
 
 Then go here to create your OpenShift Online account: https://www.openshift.com/container-platform/
 

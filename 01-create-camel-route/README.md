@@ -20,7 +20,11 @@ TIP: In Fuse 7 onwards this is no longer necessary.
         return registration;
     }
 ```
-The `src/main/fabric8/deployment.yml` file configures the deployment parameters, such as how much memory to give a pod:
+
+Take note of the `Application` class which is a standard Spring Boot application class.
+
+### OpenShift deployment
+The `src/main/faric8/deployment.yml` file configures the deployment parameters, such as how much memory to give the application when running in OpenShift (we deploy to OpenShift in follow lab - 02):
 
 ```spec:
   template:
@@ -39,6 +43,7 @@ The `src/main/fabric8/deployment.yml` file configures the deployment parameters,
 ## Write Your Camel Route
 1. Before writing your own route, you will need to create a new package for it.  Create the package/folder `my.project.route` and another one called `my.project.model`.  These packages will house your route and Java object accordingly.
 2. Then create your POJO.  You can call it whatever you wish.  For the directions we will use the name `ResponseObject`.
+
 ```java
 package my.project.model;
 
@@ -50,12 +55,15 @@ public class ResponseObject {
 	public String getResponse() {
 		return response;
 	}
+
 	public void setResponse(String response) {
 		this.response = response;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -79,22 +87,23 @@ public class ResponseObject {
 ```java
         // configures REST DSL to use servlet component and in JSON mode
         restConfiguration()
-        	.component("servlet")
-    		.bindingMode(RestBindingMode.json);
+          .component("servlet")
+          .bindingMode(RestBindingMode.json);
 
         // REST DSL with a single GET /hello service
         rest()
-        	.get("/hello")
-    	    	.to("direct:hello");
+          .get("/hello")
+    	      .to("direct:hello");
 
         // route called from REST service that builds a response message
         from("direct:hello")
-        	.log("Hello World")
-            .bean(this, "createResponse");
+          .log("Hello World")
+          .bean(this, "createResponse");
 ```
 
 ## Run and Test Your Camel Route Using Standalone Spring Boot
 To initially test your Camel route, you can run it using standalone Spring Boot.  This will ensure everything compiles and that your REST API is working as expected. To do this go to your terminal, browse to your project folder, and run the following:
+
 ```
 mvn spring-boot:run
 ```
