@@ -90,30 +90,34 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 18. Select `hello_World` as Method.
 
-19. Scroll down to the **API Test GET request**.
+![base-url.JPG](./../images/03-lab-images/base-url.JPG)
+
+19. Scroll up and ensure the base url to the route url from Open Shift, similar to `http://summit-example-rh-summit-isaas.1d35.starter-us-east-1.openshiftapps.com`
+
+20. Scroll down to the **API Test GET request**.
 
 ![3scale-update-test-request-to-correct-url.png](./../images/03-lab-images/3scale-update-test-request-to-correct-url.png)
 
-20. Enter `/camel/hello` for your pattern
+21. Enter `/camel/hello` for your pattern
 
 ![3scale-update-and-test.png](./../images/03-lab-images/3scale-update-and-test.png)
 
 ![3scale-back-to-integration-and-configuration.png](./../images/03-lab-images/3scale-back-to-integration-and-configuration.png)
 
-21. Click on the **Update & test in Staging Environment** to save the changes.
+22. Click on the **Update & test in Staging Environment** to save the changes.
 
-22. Copy the staging URL into a web browser or entire curl command to test against the staging environment. It will be something similar to:
+23. Copy the staging URL into a web browser or entire curl command to test against the staging environment. It will be something similar to:
 ```
 curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_key=910283921732184328643276dz9asd9324"
 ```
 
-23. Click on the **Back to Integration & Configuration** link.
+24. Click on the **Back to Integration & Configuration** link.
 
 ![3scale-promote-to-prod.png](./../images/03-lab-images/3scale-promote-to-prod.png)
 
-24. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+25. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
 
-25. Success! Your 3scale access control layer will now only allow authenticated calls through to your OpenShift backend API.
+26. Success! Your 3scale access control layer will now only allow authenticated calls through to your OpenShift backend API.
 
 
 ## Step 2: Play with your API and 3scale
