@@ -100,6 +100,7 @@ public class ResponseObject {
           .log("Hello World")
           .bean(this, "createResponse");
 ```
+Note: For more complex route examples see http://camel.apache.org/rest-dsl.html
 
 ## Run and Test Your Camel Route Using Standalone Spring Boot
 To initially test your Camel route, you can run it using standalone Spring Boot.  This will ensure everything compiles and that your REST API is working as expected. To do this go to your terminal, browse to your project folder, and run the following:
