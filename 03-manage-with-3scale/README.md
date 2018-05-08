@@ -1,4 +1,4 @@
-# Manage Your API with 3Scale
+# Manage Your API with 3scale
 
 ## Connecting your Customers API to 3scale API Management
 
@@ -10,14 +10,14 @@ In order to connect your Customers API to 3scale, you need to follow three simpl
 
 ## Step 0: Review Pre-Reqs
 
-Before provisioning an on-premise API gateway environment, you will want to check on the following regarding your 3scale SaaS account :
+Before provisioning an on-premises API gateway environment, you will want to check on the following regarding your 3scale SaaS account :
 
 1. 3scale Domain
-    * You should know what the domain name is of your 3scale SaaS accoount is.
-    * The name of your 3scale domain is referenced in the URL to your Administrative Portal of the 3scale SaaS environment. ie: https://&lt;YOURDOMAIN&gt;-admin.3scale.net/p/admin/dashboard.
+    * You should know what the domain name of your 3scale SaaS account is.
+    * The name of your 3scale domain is referenced in the URL to your Administrative Portal of the 3scale SaaS environment, e.g. `https://&lt;YOURDOMAIN&gt;-admin.3scale.net/p/admin/dashboard`
 
 2. 3scale Access Token
-    * To get an Access Token, you can easily create one by navigating to:
+    * To get an Access Token, navigate to:
         `Gear Icon in top right corner -> Personal Settings -> Tokens -> Add Access Token`
          + The scope of your access token should be: *Account Management API*.
     * Also ensure that your access token has *Read Only* permissions.
@@ -30,13 +30,13 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 ![3scale-initial-signin.png](./../images/03-lab-images/3scale-initial-signin.png)
 
-1. Login into the Admin Portal:
+1. Log into the Admin Portal.
 
-2. If it's the first time you access the 3scale portal, like when you click the *activate* link from the sign up email, dismiss and close the wizard by clicking on the top right **X**.
+2. If this is the first time you access the 3scale portal, such as when you click the *activate* link from the sign up email, dismiss and close the wizard by clicking on the top right **X**.
 
 ![3scale-click-integration.png](./../images/03-lab-images/3scale-click-integration.png)
 
-3. The first page you will land is the API tab. From here we will create our API definition. Click on the `Integration` link. Note: If you do not land on this page simply click API in the upper right hand corner. 
+3. The first page you will land is the API tab. From here we will create our API definition. Click on the `Integration` link.
 
 ![3scale-after-click-integration.png](./../images/03-lab-images/3scale-after-click-integration.png)
 
@@ -44,17 +44,18 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 ![3scale-hosted-nginx.png](./../images/03-lab-images/3scale-hosted-nginx.png)
 
-5. Select the **APIcast** (hosted) Gateway deployment option.
+5. Select the **APIcast** Gateway deployment option. (Select the one that does **not** say "self-managed".)
 
 ![3scale-auth-apikey.png](./../images/03-lab-images/3scale-auth-apikey.png)
 
-6. Keep the **API Key (user_key)** Authentication.
+6. Keep the **API Key (user_key)** Authentication. (You will need to scroll down for the Authentication section.)
 
 7. Click on **Update Service**
 
 ![3scale-add-base-url.png](./../images/03-lab-images/3scale-add-base-url.png)
 
-8. Click on the **add the Base URL of your API and save the configuration** button.  This is the url you can hit from your deployed Open Shift service.
+8. Click on the **add the Base URL of your API and save the configuration** button.  This is the url you can hit from your deployed OpenShift service. If you already configured a 3scale API when creating your account, this button will not be available. Click `edit APIcast configuration` instead and add the OpenShift route URL as the "Private Base URL".
+    > **Note:** If you copied the link address from the OpenShift console, ensure the "Private Base URL" does not include a '/' at the end.
 
 ![3scale-add-mapping-rules.png](./../images/03-lab-images/3scale-add-mapping-rules.png)
 
@@ -89,46 +90,45 @@ Your 3scale Admin Portal (http://&lt;YOURDOMAIN&gt;-admin.3scale.net) provides a
 
 18. Select `hello_World` as Method.
 
-![base-url.JPG](./../images/03-lab-images/base-url.JPG)
-
-19. Scroll up and update the base url to the route url from Open Shift, similar to `http://summit-example-rh-summit-isaas.1d35.starter-us-east-1.openshiftapps.com`
-
 19. Scroll down to the **API Test GET request**.
 
 ![3scale-update-test-request-to-correct-url.png](./../images/03-lab-images/3scale-update-test-request-to-correct-url.png)
 
-20. Enter `/camel/hello` or your pattern
+20. Enter `/camel/hello` for your pattern
 
 ![3scale-update-and-test.png](./../images/03-lab-images/3scale-update-and-test.png)
 
 ![3scale-back-to-integration-and-configuration.png](./../images/03-lab-images/3scale-back-to-integration-and-configuration.png)
 
-21. Click on the **Update the Staging Environment** to save the changes and then click on the **Back to Integration & Configuration** link.
+21. Click on the **Update & test in Staging Environment** to save the changes.
+
+22. Copy the staging URL into a web browser or entire curl command to test against the staging environment. It will be something similar to:
+```
+curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_key=910283921732184328643276dz9asd9324"
+```
+
+23. Click on the **Back to Integration & Configuration** link.
 
 ![3scale-promote-to-prod.png](./../images/03-lab-images/3scale-promote-to-prod.png)
 
-22. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+24. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
 
-23. Success! Your 3scale access control layer will now only allow authenticated calls through to your backend API.
+25. Success! Your 3scale access control layer will now only allow authenticated calls through to your OpenShift backend API.
 
-24. Make sure to test your API using curl or a web browser.  It wil be something similar to:
-```
-curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_key=910283921732184328643276dz9asd9324"
-``` 
 
-## Step 2: Play with your API and 3Scale
+## Step 2: Play with your API and 3scale
 
 ### Add Rate Limits to Your API
 
 ![3scale-click-integration.png](./../images/03-lab-images/3scale-click-integration.png)
 
-1. From your 3Scale admin homepage click 'Definition'. 
+1. From your 3scale admin homepage click 'Definition'.
 
 ![3scale-application-plan.png](./../images/03-lab-images/3scale-application-plan.png)
 
 2. From the side bar select 'Application Plans'
 
-![3scale-bsaic-application-plan.png](./../images/03-lab-images/3scale-basic-application-plan.png)
+![3scale-basic-application-plan.png](./../images/03-lab-images/3scale-basic-application-plan.png)
 
 3. Click on Basic
 
@@ -148,7 +148,7 @@ curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_
 
 ### Setup Alerts
 
-1. From your 3Scale homepage select 'Definition' just like you did above. 
+1. From your 3scale homepage select 'Definition' just like you did above.
 
 ![3scale-select-alerts.png](./../images/03-lab-images/3scale-select-alerts.png)
 
@@ -162,7 +162,7 @@ curl "https://mary-test-summit-23981.staging.gw.apicast.io:443/camel/hello?user_
 
 ![3scale-select-analytics.png](./../images/03-lab-images/3scale-select-analytics.png)
 
-1. From any page in your 3Scale admin portal select 'Analytics' from the top bar.  Then browse the analytis as you desire. 
+1. From any page in your 3scale admin portal select 'Analytics' from the top bar.  Then browse the analytis as you desire.
 
 ### Register a new Developer in the Developer Portal
 
@@ -186,7 +186,7 @@ Liquid is a simple programming language used for displaying and processing most 
 2. Click on the `Visit Developer Portal` to take a look of how your developer portal looks like.
 
 You can see there is a default portal with information of your API and how to signup. Unfortunately the API information is incorrect.
-    > **Note:** We will edit our portal to update it with the correct information 
+    > **Note:** We will edit our portal to update it with the correct information
 
 ![3scale-developer-portal-homepage.png](./../images/03-lab-images/3scale-developer-portal-homepage.png)
 
@@ -228,5 +228,5 @@ You can see there is a default portal with information of your API and how to si
 
 14. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your `User Key`.
     > **Note:** Copy down this key as it is used to authenticate yourself to the managed API.
-    
-15. Now you can make test requests to your API using this api key
+
+15. Now you can make test requests to your API using this key.
