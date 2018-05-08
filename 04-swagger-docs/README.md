@@ -191,6 +191,26 @@ Then fill in the details for your spec and copy/paste the json in. Click `Create
 
 Select Developer Portal From the Top Menu
 
+![3scale-swagger-documentation.png](./../images/04-lab-images/3scale-swagger-documentation.png)
+
 Open the `Documentation` page from the right hand side
 
-<TODO put instructions on adding the active docs>
+![3scale-swagger-update-docs-page.png](./../images/04-lab-images/3scale-swagger-update-docs-page.png)
+
+Update the documentation page to specifically have this tag where <SERVICE_NAME> is the name of the swagger json you added to Active Docs. 
+
+```
+{% active_docs version: "2.0" services: "Echo" %}
+```
+
+![3scale-swagger-select-save-publish.png](./../images/04-lab-images/3scale-swagger-select-save-publish.png)
+
+Select Save and then Publish
+
+![3scale-swagger-visit-developer-portal.png](./../images/04-lab-images/3scale-swagger-visit-developer-portal.png)
+
+Then click the `Visit Developer Portal` again
+
+![3scale-swagger-dev-portal-documentation.png](./../images/04-lab-images/3scale-swagger-dev-portal-documentation.png)
+
+Now click the `Documentation` link at the top to see your docs. 
