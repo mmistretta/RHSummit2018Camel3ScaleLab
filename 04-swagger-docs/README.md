@@ -186,3 +186,11 @@ Select Create New Spec in the upper right hand corner.
 ![3scale-swagger-new-service-details.png](./../images/04-lab-images/3scale-swagger-new-service-details.png)
 
 Then fill in the details for your spec and copy/paste the json in. Click `Create Service`
+
+## Add Swagger Docs to Developer Portal
+
+Select Developer Portal From the Top Menu
+
+Open the `Documentation` page from the right hand side
+
+<TODO put instructions on adding the active docs>
