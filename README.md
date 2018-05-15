@@ -13,3 +13,9 @@ This very simple lab will guide you to create your very first Fuse-based SpringB
 - Git (https://git-scm.com/download/win)
 - Red Hat Developer Account (http://developers.redhat.com/register)
 - Free Trial Account with 3Scale (https://www.3scale.net/signup/)
+
+## Slides
+
+The slides for the workshop
+
+- [Camel 3Scale Workshop Slides](2018-RHSummit-Camel-3Scale-Workshop-Slides.pdf)
