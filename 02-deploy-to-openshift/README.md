@@ -49,7 +49,28 @@ You don't have any projects. You can try to create a new project, by running
       </plugin>
 ```
 
-8. Run ‘mvn fabric8:deploy’ from your Camel project directory
+8. Run ‘mvn fabric8:deploy’  with parameters 
+
+```
+-Dkubernetes.master=https://YOUR_OPENSHIFT_URL
+-Dkubernetes.namespace=YOURUSER_NAME_SPACE
+-Dkubernetes.auth.basic.username=YOUR_USERNAME 
+-Dkubernetes.auth.basic.password=YOUR_PASSWORD 
+-Dfabric8.mode=openshift 
+-Dkubernetes.trust.certificates=true 
+-Dkubernetes.auth.tryServiceAccount=false 
+-Dfabric8.generator.from=registry.access.redhat.com/fuse7/fuse-java-openshift 
+-Dfabric8.generator.fromMode=docker 
+-Dkubernetes.auth.tryKubeConfig=false 
+-Dfabric8.build.strategy=docker
+```
+or do 
+
+```
+oc login https://YOUR_OPENSHIFT_URL 
+```
+
+from your Camel project directory
 ```
 [INFO] F8: Pushed 18/26 layers, 69% complete
 [INFO] F8: Pushed 19/26 layers, 73% complete
